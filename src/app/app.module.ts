@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http';
 const appRoutes:Routes = [
   {path: 'xx', component: HomeComponent},
   {path: 'login', component: LoginFormComponent},
@@ -26,7 +27,8 @@ const appRoutes:Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
