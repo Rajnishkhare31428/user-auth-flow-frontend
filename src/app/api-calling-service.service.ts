@@ -9,19 +9,17 @@ export class ApiCallingServiceService {
   constructor(private _http:HttpClient) { }
   requestLogin(requestData) : boolean {
     // API call for login to be made here
-    console.log(requestData.value);
     this._http.post(this.base_url + '/login', requestData.value).toPromise().then((data:any) => {
       console.log(data);
-      alert(JSON.stringify(data));
+      alert(JSON.stringify(data.message));
     });
     return true;
   }
   requestRegistration(requestData) : boolean {
     // API call for registration to be made here
-    console.log(requestData.value);
     this._http.post(this.base_url + '/register', requestData.value).toPromise().then((data:any) => {
       console.log(data);
-      alert(JSON.stringify(data));
+      window.alert(data.message);
     });
     return true;
   }
