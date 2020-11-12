@@ -11,5 +11,8 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
+  saveData(loginform) {
+    console.log(JSON.stringify(loginform.value));
+  }
 }
