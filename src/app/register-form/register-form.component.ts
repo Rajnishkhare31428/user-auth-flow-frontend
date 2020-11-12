@@ -12,6 +12,6 @@ export class RegisterFormComponent implements OnInit {
   ngOnInit(): void {
   }
   register(data) {
-    console.log(data.value);
+    console.log(JSON.stringify(data.value));
   }
 }
