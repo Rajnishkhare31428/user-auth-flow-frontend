@@ -6,13 +6,12 @@ import { ApiCallingServiceService } from '../api-calling-service.service';
   styleUrls: ['./register-form.component.css']
 })
 export class RegisterFormComponent implements OnInit {
-
   constructor(private Api_Call:ApiCallingServiceService) { }
 
   ngOnInit(): void {
   }
+
   register(registrationform) {
-    console.log(JSON.stringify(registrationform.value));
-    this.Api_Call.requestRegistration(registrationform.value);
+    this.Api_Call.requestRegistration(registrationform);
   }
 }

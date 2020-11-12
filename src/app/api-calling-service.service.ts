@@ -9,10 +9,12 @@ export class ApiCallingServiceService {
 
   requestLogin(requestData) : boolean {
     // API call for login to be made here
+    console.log(requestData.value);
     return true;
   }
   requestRegistration(requestData) : boolean {
     // API call for registration to be made here
+    console.log(requestData.value);
     return true;
   }
 }

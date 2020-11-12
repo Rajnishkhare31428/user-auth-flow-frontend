@@ -13,7 +13,6 @@ export class LoginFormComponent implements OnInit {
   }
 
   saveData(loginform) {
-    console.log(JSON.stringify(loginform.value));
     this.Api_Call.requestLogin(loginform);
   }
 }
