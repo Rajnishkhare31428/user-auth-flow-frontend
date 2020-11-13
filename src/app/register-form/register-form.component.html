@@ -27,7 +27,7 @@
             </div>
 
             <label for="contact">Contact</label>
-            <input type="contact" class="form-control" name="contact" ngModel required minlength="10" maxlength="10">
+            <input type="contact" class="form-control" name="contact" ngModel required minlength="10" maxlength="10" pattern="^[0-9]*$">
             <div class="alert alert-danger" *ngIf = "registerform.controls['contact'].value == '' && registerform.controls['contact'].touched">
                 Contact is Required
             </div>
