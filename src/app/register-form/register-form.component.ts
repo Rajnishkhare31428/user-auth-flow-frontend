@@ -12,6 +12,11 @@ export class RegisterFormComponent implements OnInit {
   }
 
   register(registrationform) {
-    this.Api_Call.requestRegistration(registrationform);
+    if(registrationform.valid) {
+      this.Api_Call.requestRegistration(registrationform);
+    }
+    else {
+      alert('Validation errors in your form');
+    }
   }
 }

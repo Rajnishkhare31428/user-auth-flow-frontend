@@ -1,26 +1,60 @@
 <div class="container">
-    <form #registerform = "ngForm" (ngSubmit) = "register(registerform)">
+    <form #registerform = "ngForm" (ngSubmit) = "register(registerform)" novalidate>
         <div class="form-group">
             <label for="name">Full Name</label>
-            <input type="name" id = "name" class="form-control" name="name" ngModel>
+            <input type="name" id = "name" class="form-control" name="name" ngModel required>
+            <div class="alert alert-danger" *ngIf = "registerform.controls['name'].value == '' && registerform.controls['name'].touched">
+                Name is Required
+            </div>
+
             <label for="email">Email</label>
-            <input type="email" id = "email" class="form-control" name="email" ngModel>
+            <input type="email" id = "email" class="form-control" name="email" ngModel required email>
+            <div class="alert alert-danger" *ngIf = "registerform.controls['email'].value == '' && registerform.controls['email'].touched">
+                Email is Required
+            </div>
+            <div class="alert alert-danger" *ngIf = "registerform.controls['email'].invalid && registerform.controls['email'].value != ''">
+                Email is not valid
+            </div>
+
             <label for="gender">Gender</label>
-            <select name="gender" id="gender" class="form-control" name="gender" ngModel>
+            <select name="gender" id="gender" class="form-control" name="gender" ngModel required>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Dont Prefered to tell</option>
             </select>
+            <div class="alert alert-danger" *ngIf = "registerform.controls['gender'].invalid && registerform.controls['gender'].touched">
+                Select gender
+            </div>
+
             <label for="contact">Contact</label>
-            <input type="contact" class="form-control" name="contact" ngModel>
+            <input type="contact" class="form-control" name="contact" ngModel required minlength="10" maxlength="10">
+            <div class="alert alert-danger" *ngIf = "registerform.controls['contact'].value == '' && registerform.controls['contact'].touched">
+                Contact is Required
+            </div>
+            <div class="alert alert-danger" *ngIf = "registerform.controls['contact'].value != '' && registerform.controls['contact'].invalid">
+                Contact is Invalid
+            </div>
+
             <label for="password">Create Password</label>
-            <input type="password" class="form-control" id="password" name="password" ngModel>
+            <input type="password" class="form-control" id="password" name="password" ngModel required pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$">
+            <div class="alert alert-danger" *ngIf = "registerform.controls['password'].value == '' && registerform.controls['password'].touched">
+                Password is Required
+            </div>
+            <div class="alert alert-danger" *ngIf = "registerform.controls['password'].invalid && registerform.controls['password'].value != ''">
+                Password is Invalid
+            </div>
+
             <label for="confirm-password">Confirm Password</label>
-            <input type="password" class="form-control" id="confirm-password" name="confirm_password" ngModel>
+            <input type="password" class="form-control" id="confirm-password" name="confirm_password" ngModel required>
+            <div class="alert alert-danger" *ngIf = "registerform.controls['confirm_password'].touched && !(registerform.controls['confirm_password'].value == registerform.controls['password'].value)">
+                Password and Confirm Password is'nt matching
+            </div>
+
             <div class="form-check">
                 <input type="checkbox" id="checkbox" class="form-check-input" name="remember_token" ngModel>
                 <label for="checkbox" class="form-check-label">Remember Me</label>                
             </div>
+
             <div class="container">
                 <button class="btn btn-outline-primary btn-block">Submit</button>        
             </div>            
