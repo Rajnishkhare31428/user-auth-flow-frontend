@@ -19,7 +19,6 @@ export class LoginFormComponent implements OnInit {
     });
   }
   onSubmit() {
-    //console.log(this.myLoginForm);
     this.saveData(this.myLoginForm);
   }
   saveData(loginform) {

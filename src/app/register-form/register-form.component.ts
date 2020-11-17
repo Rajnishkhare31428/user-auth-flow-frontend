@@ -8,6 +8,7 @@ import { ApiCallingServiceService } from '../api-calling-service.service';
 })
 export class RegisterFormComponent implements OnInit {
   myRegistrationForm: FormGroup;
+  showValidPassword : boolean = true;
   constructor(private Api_Call:ApiCallingServiceService) { }
 
   ngOnInit(): void {
@@ -21,7 +22,6 @@ export class RegisterFormComponent implements OnInit {
     });
   }
   onSubmit() {
-    //console.log(this.myRegistrationForm.value);
     this.register(this.myRegistrationForm);
   }
   register(registrationform) {
@@ -31,5 +31,13 @@ export class RegisterFormComponent implements OnInit {
     else {
       alert('Validation errors in your form');
     }
+  }
+  show() {
+    console.log('show method called');
+    this.showValidPassword = true;
+  }
+  dontShow() {
+    console.log('dontShow method called');
+    this.showValidPassword = false;
   }
 }

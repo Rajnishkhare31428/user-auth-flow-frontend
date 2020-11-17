@@ -36,13 +36,16 @@
             </div>
 
             <label for="password">Create Password</label>
-            <input type="password" class="form-control" id="password" formControlName="password"  required pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$">
+            <input type="password" class="form-control" id="password" formControlName="password"  required pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" (blur)="dontShow()" (focus) = "show()">
             <div class="alert alert-danger" *ngIf = "myRegistrationForm.controls['password'].value == '' && myRegistrationForm.controls['password'].touched">
                 Password is Required
             </div>
             <div class="alert alert-danger" *ngIf = "myRegistrationForm.controls['password'].invalid && myRegistrationForm.controls['password'].value != ''">
-                Password should be min length 8
-                should contain one upper case one lower case and one special character
+                Password should be of minimum length 8 <br>
+                should contain one upper case one lower case <br>and one special character
+            </div>
+            <div class="alert alert-success" *ngIf = "myRegistrationForm.controls['password'].valid && showValidPassword">
+                Password is valid
             </div>
 
             <label for="confirm-password">Confirm Password</label>
