@@ -33,11 +33,11 @@ export class RegisterFormComponent implements OnInit {
     }
   }
   show() {
-    console.log('show method called');
+    //console.log('show method called');
     this.showValidPassword = true;
   }
   dontShow() {
-    console.log('dontShow method called');
+    //console.log('dontShow method called');
     this.showValidPassword = false;
   }
 }
