@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { rejects } from 'assert';
+import { AppComponent } from './app.component';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,15 +14,23 @@ export class ApiCallingServiceService {
     this._http.post(this.base_url + '/login', requestData.value).toPromise().then((data:any) => {
       console.log(data);
       alert(JSON.stringify(data.message));
+    }).catch((err) => {
+      console.log('Something went wrong while making login request to the API');
+      rejects(err);
     });
     return true;
   }
   requestRegistration(requestData) : boolean {
     // API call for registration to be made here
     this._http.post(this.base_url + '/register', requestData.value).toPromise().then((data:any) => {
-      console.log(data);
-      window.alert(data.message);
+        console.log(data);
+        window.alert(data.message);        
+    }).catch((err) => {
+      console.log('Something went wrong while making registration request to the API');
+      rejects(err);
     });
+    
     return true;
   }
+
 }
