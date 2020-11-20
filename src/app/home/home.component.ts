@@ -10,9 +10,11 @@ import { ApiCallingServiceService } from '../api-calling-service.service';
 })
 export class HomeComponent implements OnInit {
   allPosts : any[];
+  login : boolean = false;
   constructor(private Api_Call:ApiCallingServiceService) { }
 
   ngOnInit(): void {
+    this.login = sessionStorage.getItem('login') == 'true';
     this.Api_Call.getAllPosts().then((value:any) => {
       this.allPosts = value;
     }).catch((err) => {

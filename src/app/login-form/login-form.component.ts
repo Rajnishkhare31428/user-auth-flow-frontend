@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiCallingServiceService } from '../api-calling-service.service';
 @Component({
   selector: 'app-login-form',
@@ -8,10 +9,11 @@ import { ApiCallingServiceService } from '../api-calling-service.service';
 })
 export class LoginFormComponent implements OnInit {
   myLoginForm:FormGroup;
-  rollnumber : number = 0;
-  constructor(private Api_Call:ApiCallingServiceService) { }
+  login : boolean = false;
+  constructor(private Api_Call:ApiCallingServiceService, private router : Router) { }
 
   ngOnInit(): void {
+    this.login = sessionStorage.getItem('login') == 'true';
     this.myLoginForm = new FormGroup({
       'email' : new FormControl(''),
       'password' : new FormControl(''),
@@ -22,6 +24,8 @@ export class LoginFormComponent implements OnInit {
     this.saveData(this.myLoginForm);
   }
   saveData(loginform) {
-    this.Api_Call.requestLogin(loginform);
+    if(this.Api_Call.requestLogin(loginform)) {
+      
+    }
   }
 }

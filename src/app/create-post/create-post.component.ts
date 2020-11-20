@@ -10,8 +10,9 @@ import { ApiCallingServiceService } from '../api-calling-service.service';
 export class CreatePostComponent implements OnInit {
   myPost : FormGroup;
   constructor(private API_Call : ApiCallingServiceService) { }
-
+  login : boolean = false;
   ngOnInit(): void {
+    this.login = sessionStorage.getItem('login') == 'true';
     this.myPost = new FormGroup({
       'content' : new FormControl(''),
       'description' : new FormControl(''),

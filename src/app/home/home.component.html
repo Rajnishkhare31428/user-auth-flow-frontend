@@ -1,5 +1,5 @@
 
-<div class="container" style="color: lightslategray; width: 100%;">
+<div class="container" style="color: lightslategray; width: 100%;" *ngIf = "login">
     <h3 style="color: brown;">Here are all todays posts</h3>
     <div class="container" *ngFor = "let post of allPosts">
         <strong class="navbar-dark">{{ post.name }}</strong> <br>
@@ -11,6 +11,6 @@
             <br>
             <br>            
         </div>
-
     </div>
 </div>
+<strong *ngIf="!login">You are not logged in. Kindly login to view posts</strong>
