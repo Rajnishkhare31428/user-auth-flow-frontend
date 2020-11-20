@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
+import { CreatePostComponent } from './create-post/create-post.component';
 const appRoutes:Routes = [
   {path: 'xx', component: HomeComponent},
   {path: 'login', component: LoginFormComponent},
@@ -21,7 +22,8 @@ const appRoutes:Routes = [
     LoginFormComponent,
     RegisterFormComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,

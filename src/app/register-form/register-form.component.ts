@@ -9,9 +9,11 @@ import { ApiCallingServiceService } from '../api-calling-service.service';
 export class RegisterFormComponent implements OnInit {
   myRegistrationForm: FormGroup;
   showValidPassword : boolean = true;
+  auth_token:string = "";
   constructor(private Api_Call:ApiCallingServiceService) { }
 
   ngOnInit(): void {
+    this.auth_token = sessionStorage.getItem("auth_token");
     this.myRegistrationForm = new FormGroup({
       'name' : new FormControl(''),
       'email' : new FormControl(''),
