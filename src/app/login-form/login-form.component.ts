@@ -8,7 +8,7 @@ import { ApiCallingServiceService } from '../api-calling-service.service';
 })
 export class LoginFormComponent implements OnInit {
   myLoginForm:FormGroup;
-
+  rollnumber : number = 0;
   constructor(private Api_Call:ApiCallingServiceService) { }
 
   ngOnInit(): void {
@@ -23,6 +23,5 @@ export class LoginFormComponent implements OnInit {
   }
   saveData(loginform) {
     this.Api_Call.requestLogin(loginform);
-    
   }
 }

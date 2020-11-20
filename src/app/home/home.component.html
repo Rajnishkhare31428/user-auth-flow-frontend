@@ -1,1 +1,16 @@
 
+<div class="container" style="color: lightslategray; width: 100%;">
+    <h3 style="color: brown;">Here are all todays posts</h3>
+    <div class="container" *ngFor = "let post of allPosts">
+        <strong class="navbar-dark">{{ post.name }}</strong> <br>
+        <strong class="navbar-dark">{{ post.email }}</strong> <br>
+        <textarea name="" id="" cols="30" rows="10" readonly class="form-control">{{ post.content }}</textarea>
+        <div class="container" style="display: inline;">
+            <button class="btn btn-primary" style="margin-left: 3px; float: right;">Comment</button>
+            <button class="btn btn-primary" style="float: right;">Like</button>            
+            <br>
+            <br>            
+        </div>
+
+    </div>
+</div>

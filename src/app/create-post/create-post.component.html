@@ -1,1 +1,11 @@
 <p>create-post works!</p>
+<div class="container">
+    <form [formGroup] = "myPost" (ngSubmit) = "onSubmit()">
+        <label for="description">Description</label>
+        <input type="text" id = "description" class="form-control" placeholder="Give a short description" formControlName = "description">
+        <label for="content" aria-placeholder="write something good">Content</label>
+        <textarea id="content" cols="30" rows="10" class="form-control" placeholder="Write something awesome" formControlName = "content"></textarea>
+        <br>
+        <button class="btn btn-outline-primary">Create Post</button>            
+    </form>
+</div>

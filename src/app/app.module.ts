@@ -15,6 +15,9 @@ const appRoutes:Routes = [
   {path: 'login', component: LoginFormComponent},
   {path: 'register', component: RegisterFormComponent},
   {path: 'dashboard', component: DashboardComponent},
+  {path: 'createpost', component: CreatePostComponent},
+  {path: 'home', component: HomeComponent},
+
 ];
 @NgModule({
   declarations: [
